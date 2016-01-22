@@ -1,0 +1,27 @@
+@prefix kb <http://labeling.i3mainz.hs-mainz.de/knowledgebase#>
+@prefix cerif: <http://eurocris.org/ontologies/cerif/1.3#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix cerifX: <http://eurocris.org/ontologies/cerifX/1.3#> .
+@prefix semcerif: <http://www.eurocris.org/ontologies/semcerif/1.3/#> .
+kb:project
+	a cerif:Project ;
+	cerif:name "Projektname" ;
+	cerif:internalIdentifier "ID" ;
+	cerif:akronym "Akronym" ;
+	cerif:abstract "Projektbeschreibung" ;
+	cerif:startDate "2015"^^<http://www.w3.org/2001/XMLSchema#integer> ;
+	cerif:endDate "2016"^^<http://www.w3.org/2001/XMLSchema#integer> ;
+	dc:coverage "geogr. Raum" ;
+	geo:lat "0.0" ;
+	geo:lon "0.0" ;
+	dc:rights "Lizenz" ;
+	dc:format "Datentyp" ;
+	dc:subject "Disziplin" ;
+	dc:date "Epoche" .
+	cerifX:head "Projektleitung" ;
+	cerifX:staff "Mitwirkende" ;
+	cerif:funding "1000"^^<http://www.w3.org/2001/XMLSchema#integer> ;
+	cerifX:sponsor "Förderer" ;
+	cerifX:organisation "Institut" ;
+	cerifX:partner "Projektpartner".
