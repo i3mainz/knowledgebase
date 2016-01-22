@@ -9,6 +9,7 @@ kb:project
 	cerif:name "Projektname" ;
 	cerif:internalIdentifier "ID" ;
 	cerif:akronym "Akronym" ;
+	cerif:uri <http://test.de> ;
 	cerif:abstract "Projektbeschreibung" ;
 	cerif:startDate "2015"^^<http://www.w3.org/2001/XMLSchema#integer> ;
 	cerif:endDate "2016"^^<http://www.w3.org/2001/XMLSchema#integer> ;
@@ -25,3 +26,5 @@ kb:project
 	cerifX:sponsor "Förderer" ;
 	cerifX:organisation "Institut" ;
 	cerifX:partner "Projektpartner".
+
+
