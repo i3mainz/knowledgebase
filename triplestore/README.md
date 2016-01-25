@@ -15,12 +15,7 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-The OpenRDF Sesame Framework 
-Copyright 2001-2013 Aduna
--------------------------------------------------------------------------------
-
-Source code contributions
--------------------------
+## Source code contributions
 
 This software includes code developed by Aduna
 (http://www.aduna-software.com/).
@@ -54,8 +49,7 @@ This software includes code developed by L3S (http://www.l3s.de/).
 The above parties have licensed their code contributions to Aduna under the 
 terms of a contributor license agreement (CLA).
 
-Third party libraries
----------------------
+## Third party libraries
 
 This product includes software developed by The Apache Software Foundation
 (http://www.apache.org/). License: http://www.apache.org/licenses/LICENSE-2.0
