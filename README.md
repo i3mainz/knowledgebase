@@ -4,7 +4,7 @@
 
 knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript Frameworks unter Nutzung von OpenRDF Sesame. Daten können in einem UI erfasst, auf dem Server in Triples umgewandelt und mit Hilfe von filter.js angezeigt werden.
 
-## Vorraussetzungen
+## Installieren und starten
 
 * Apache Tomcat installieren
 * deploy [OpenRDF in Version 2.8.7](/triplestore) im Ordner "war"
