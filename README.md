@@ -16,6 +16,7 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 ## Dokumentation
 * [Wiki](../../wiki)
 * [javadoc](/javadoc)
+* [Ontologie](../../wiki/Ontologie#implementiertes-mapping-der-beispielattribute-zu-cerif)
 
 ## Quellcode
 * knowledgebase ist ein JAVA Netbeans Projekt.
