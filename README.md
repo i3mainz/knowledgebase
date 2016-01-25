@@ -7,7 +7,7 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 ## Vorraussetzungen
 
 * Apache Tomcat installieren
-* deploy war-files OpenRDF Sesame Server und Workbench in Version 2.8.7 [[Download](http://sourceforge.net/projects/sesame/files/Sesame%202/2.8.7/)]
+* deploy [OpenRDF in Version 2.8.7](/triplestore/war)
 * Config-Variablen anpassen (siehe unten)
 * built knowledgebase
 * deploy knowledgebase.war
