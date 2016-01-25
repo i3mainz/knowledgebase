@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>knowledgebase</title>
+		<link rel="stylesheet" href="../style.css">
+		<!-- Config -->
+		<script src="../config.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	</head>
+	<body>
+		<h1 class="left top">knowledgebase | Statistik | <a href="../filter">back to filter</a></h1>
+		<select id="charts" style="float:left;" class="left top bottom" onchange="showChart()">
+			<option value="container3">Kuchendiagramm - Drittmittelverteilung</option>
+			<option value="container">Balkendiagramm - Drittmittelentwicklung</option>
+			<option value="container2">Liniendiagramm - Drittmittelentwicklung</option>
+		</select>
+		<div id="container3" style="height: 400px; width: 800px; border-style: solid; border-width: 1px; border-color: lightgrey; float: left; clear: both; margin-left: 20px;"></div>
+		<div id="container" style="height: 400px; width: 800px; border-style: solid; border-width: 1px; border-color: lightgrey; float: left; clear: both; margin-left: 20px;"></div>
+		<div id="container2" style="height: 400px; width: 800px; border-style: solid; border-width: 1px; border-color: lightgrey; float: left; clear: both; margin-left: 20px;"></div>
+		<script>
+			$(document).ready(function() {
+				$("#container3").html("<h1>loading...</h1>");
+				var chartPie;
+				var optionsPie = {
+					chart: {
+						type: 'pie',
+						renderTo: 'container3',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false,
+					},
+					title: {
+						text: 'DRITTMITTELVERTEILUNG'
+					},
+					subtitle: {
+						text: ''
+					},
+					xAxis: {
+						categories: [],
+						crosshair: true,
+						title: {
+							text: ''
+						}
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: ''
+						}
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								format: '{point.name}: {point.percentage:.1f}% ',
+								style: {
+									color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+							}
+						}
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}% ({point.y})</b>'
+					},
+					series: []
+				};
+				$.getJSON(Config.CALC_PIE, function (json) {
+					for (element in json) {
+						optionsPie.series[element] = json[element];
+					}
+					chartPie = new Highcharts.Chart(optionsPie);
+					console.info(optionsPie);
+				});
+			});
+			var chartColumn;
+			var optionsColumn = {
+				chart: {
+					type: 'column',
+					renderTo: 'container'
+				},
+				title: {
+					text: 'DRITTMITTELENTWICKLUNG'
+				},
+				subtitle: {
+					text: ''
+				},
+				xAxis: {
+					categories: [],
+					crosshair: true,
+					title: {
+						text: ''
+					}
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: ''
+					}
+				},
+				series: []
+			};
+			$.getJSON(Config.CALC_COLUMN, function (json) {
+				optionsColumn.xAxis.categories = json[0].categories;
+				for (element in json) {
+					optionsColumn.series[element] = json[element];
+				}
+				chartColumn = new Highcharts.Chart(optionsColumn);
+				console.info(optionsColumn);
+			});
+			var chartLine;
+			var optionsLine = {
+				chart: {
+					type: 'line',
+					renderTo: 'container2'
+				},
+				title: {
+					text: 'DRITTMITTELENTWICKLUNG'
+				},
+				subtitle: {
+					text: ''
+				},
+				xAxis: {
+					categories: [],
+					crosshair: true,
+					title: {
+						text: ''
+					}
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: ''
+					}
+				},
+				series: []
+			};
+			$.getJSON(Config.CALC_LINE, function (json) {
+				optionsLine.xAxis.categories = json[0].categories;
+				for (element in json) {
+					optionsLine.series[element] = json[element];
+				}
+				chartLine = new Highcharts.Chart(optionsLine);
+				console.info(optionsLine);
+			});
+			function showChart() {
+				var val = $("#charts").val();
+				console.log(val);
+				if (val == "container3") {
+					$("#container").hide();
+					$("#container2").hide();
+					$("#container3").show();
+				} else if (val == "container") {
+					$("#container").show();
+					$("#container2").hide();
+					$("#container3").hide();
+				} else if (val == "container2") {
+					$("#container").hide();
+					$("#container2").show();
+					$("#container3").hide();
+				}
+			}
+			showChart();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>knowledgebase</title>
+		<!-- Config -->
+		<script src="../config.js" type="text/javascript"></script>
+		<!-- Assets CSS -->
+		<link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="css/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="css/stream.css" media="screen" rel="stylesheet" type="text/css">
+		<!-- jQuery -->
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js" type="text/javascript"></script>
+		<!-- Filter.js -->
+		<script src="js/filter.js" type="text/javascript"></script>
+		<!-- Leaflet -->
+		<link href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet" type="text/css"/>
+		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<!-- Filter Action -->
+		<script src="js/action.js" type="text/javascript"></script>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+			h4 { color:black !important; padding: 0 !important; font-size:14px;}
+			.col-md-6 { width:100% !important; color:black !important; margin-bottom: 0px; margin-top: 30px; font-weight: 600;}
+			.thumbnail { min-height:150px !important; height:175px !important; background-color: Gainsboro; border: none; cursor: pointer;}
+			.map {height: 325px !important; width: 450px !important;}
+			.active {background-color: lightgreen;}
+			.form-control{background-color: white !important;} /* search */
+			.well{background-color: Moccasin !important; border: none; color: black;} /* filter menus */
+			.container{width:calc(100% - 20px); margin: 10px !important;} /* main window */
+			.col-md-3{width:300px !important;} /* sidebar */
+			.col-md-9{width:calc(100% - 335px); margin-left: 35px;} /* rechts von sidebar sidebar plus hier = 100% */
+			.col-md-4{width:350px !important;} /* thumbnails */
+			h1 {font-size: 18px; margin-top: 5px;}
+			h3 {font-size: 18px; margin-bottom: 40px; margin-top:5px;}
+			h4 {font-weight: normal !important;}
+			h5 {font-size: 18px; margin-bottom: 20px; margin-top:5px; color: black !important; font-weight: 700;}
+			legend {border-style: none; margin-bottom: 5px;}
+			.navientry { margin-right: 10px; margin-left: 10px; float:left;}
+			.navires { margin-right: 10px; margin-left: 10px; float:right; font-size: 16px;}
+			.navihead { margin-right: 20px; clear: both; float:left;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="">knowledgebase prototyp</h1>
+			<h3><div class="navihead">funktionen</div><div class="navientry"><a href="../input/index.htm" target="_self">dateneingabe</a></div><div class="navientry"><a href="../modify/index.htm" target="_self">datenbearbeitung</a></div><div class="navientry"><a href="../sparql/index.htm" target="_self">sparql</a></div><div class="navientry"><a href="../datavis/index.htm" target="_self">statistik</a></div><div class="navientry"><a onclick="showMap()" style="cursor: pointer;">karte anzeigen/ausblenden</a></div><div class="navires">Projekte (<span id="total_data"></span>)</div></h3>
+			<div class="sidebar col-md-3">
+				<div>
+					<h4 class='col-md-6'></h4>
+				</div>
+				<!-- search box -->
+				<div>
+					<label class="sr-only" for="searchbox">Search</label>
+					<input type="text" class="form-control" id="searchbox" placeholder="">
+					<span class="glyphicon glyphicon-search search-icon"></span>
+				</div>
+				<br>
+				<!-- institutes filter -->
+				<div class="well">
+					<fieldset id="institutes_criteria">
+						<legend>Einrichtungen</legend>
+					</fieldset>
+				</div>
+				<!-- persons filter -->
+				<div class="well">
+					<fieldset id="persons_criteria">
+						<legend>Personen</legend>
+					</fieldset>
+				</div>
+				<!-- years filter -->
+				<div class="well">
+					<fieldset id="years_criteria">
+						<legend>Projektbeginn</legend> <span id="years_range_label" class="slider-label">1980-2050</span>
+						<div id="years_slider" class="slider">
+						</div>
+						<input type="hidden" id="years_filter" value="1980-2050">
+					</fieldset>
+				</div>
+				<!-- laufzeit filter -->
+				<div class="well">
+					<fieldset id="laufzeit_criteria">
+						<legend>Laufzeit in Jahren</legend> <span id="laufzeit_range_label" class="slider-label">0-30</span>
+						<div id="laufzeit_slider" class="slider">
+						</div>
+						<input type="hidden" id="laufzeit_filter" value="0-30">
+					</fieldset>
+				</div>
+				<!-- partners filter -->
+				<div class="well">
+					<fieldset id="partners_criteria">
+						<legend>Projektpartner</legend>
+					</fieldset>
+				</div>
+				<!-- sponsor filter -->
+				<div class="well">
+					<fieldset id="sponsors_criteria">
+						<legend>Förderer</legend>
+					</fieldset>
+				</div>
+				<!-- foedersumme filter -->
+				<div class="well">
+					<fieldset id="foedersumme_criteria">
+						<legend>Fördersumme in EURO</legend> <span id="foedersumme_range_label" class="slider-label">0-1000000</span>
+						<div id="foedersumme_slider" class="slider">
+						</div>
+						<input type="hidden" id="foedersumme_filter" value="0-10000">
+					</fieldset>
+				</div>
+				<!-- discipline filter -->
+				<div class="well">
+					<fieldset id="discipline_criteria">
+						<legend>Forschungsdisziplin</legend>
+					</fieldset>
+				</div>
+				<!-- period filter -->
+				<div class="well">
+					<fieldset id="period_criteria">
+						<legend>Epoche</legend>
+					</fieldset>
+				</div>
+				<!-- period filter -->
+				<div class="well">
+					<fieldset id="space_criteria">
+						<legend>Geogr. Raum</legend>
+					</fieldset>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<!-- datasets number -->
+				<div>
+					<!--<h4 class='col-md-6'>Liste gefilterter Projekte (<span id="total_data"></span>)</h4>-->
+					<h4 class='col-md-6'></h4>
+				</div>
+				<!-- Leaflet Map -->
+				<div id="map" class="map"></div>
+				<!-- Filter Data -->
+				<div class="movies content row" id="data"> </div>
+			</div>
+		</div>
+
+		<!-- Template for Filter Results -->
+		<script id="main_template" type="text/html">
+			<!-- Achtung <%= lat %> nicht < %= lat % > !!! -->
+			<div class="col-md-4 movie" onmouseover="highlight(<%= lat %>,<%= lon %>,'<%= id %>',0)" onmouseout='resethighlight();' onclick="window.open('<%= uri %>','_blank')">
+				<div class="thumbnail" id="<%= id %>">
+					<div class="caption">
+						<h5><%= _fid %>. <%= akronym %></h5>
+						<div class="outline" type="hovereffect">
+						</div>
+						<div class="detail">
+							<dl>
+								<dt><%= projektname %></dt>
+								<dt style="margin-top: 20px;"><%= beginn %> - <%= ende %></dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		</script>
+
+	</body>
+</html>

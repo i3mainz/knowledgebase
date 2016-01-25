@@ -1,0 +1,18 @@
+[{
+	"data": [{
+		"name": "i3mainz",
+		"y": 100000,
+		"sliced": true,
+		"selected": true
+	}, {
+		"name": "IEG",
+		"y": 250000,
+		"sliced": true,
+		"selected": true
+	}, {
+		"name": "mainzed",
+		"y": 15000,
+		"sliced": true,
+		"selected": true
+	}]
+}]
