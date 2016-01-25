@@ -7,7 +7,7 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 ## Vorraussetzungen
 
 * Apache Tomcat installieren
-* deploy [OpenRDF in Version 2.8.7](/triplestore)
+* deploy [OpenRDF in Version 2.8.7](/triplestore) im Ordner "war"
 * Config-Variablen anpassen (siehe unten)
 * built knowledgebase
 * deploy knowledgebase.war
