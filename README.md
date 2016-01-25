@@ -8,7 +8,15 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 
 * Apache Tomcat installieren
 * deploy [OpenRDF in Version 2.8.7](/triplestore) im Ordner "war"
-* Config-Variablen anpassen (siehe unten)
+* Netbeans-Projekt "knowledgebase" öffnen
+* built with dependencies
+* Config-Variablen anpassen
+  * [Config.java](/netbeans/knowledgebase/src/main/java/de/i3mainz/knowledgebase/Config.js)
+    * TRIPLESTORE_SERVER
+    * INSTANCE_HOST
+    * TRIPLESTORE_REPOSITORY
+  * [config.js](/netbeans/knowledgebase/src/main/webapp/config.js)
+    * Config.HOST
 * built knowledgebase
 * deploy knowledgebase.war
 * fertig!
@@ -17,15 +25,6 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 * [Wiki](../../wiki)
 * [javadoc](/javadoc)
 * [Ontologie](../../wiki/Ontologie#implementiertes-mapping-der-beispielattribute-zu-cerif)
-
-## Quellcode
-* knowledgebase ist ein JAVA Netbeans Projekt.
-* Anpassen der Variablen in JAVA [Config.java](/netbeans/knowledgebase/src/main/webapp/config.js)
-  * TRIPLESTORE_SERVER
-  * INSTANCE_HOST
-  * TRIPLESTORE_REPOSITORY
-* Anpassen der Variablen in JAVASCRIPT [config.js](/netbeans/knowledgebase/src/main/webapp/config.js)
-  * Config.HOST
 
 ## Beispiele
 * [mainzed knowledgebase](http://labeling.i3mainz.hs-mainz.de/knowledgebase/)
