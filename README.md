@@ -28,7 +28,7 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 
 ## Beispiele
 * [mainzed knowledgebase](http://labeling.i3mainz.hs-mainz.de/knowledgebase/)
-* 
+
 ## Lizenz
 
 The MIT License (MIT)
