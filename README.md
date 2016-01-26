@@ -11,7 +11,7 @@ knowledgebase ist ein Prototyp eines client-server-basierten JAVA / JavaScript F
 * Netbeans-Projekt "knowledgebase" öffnen
 * built with dependencies
 * Config-Variablen anpassen
-  * [Config.java](/netbeans/knowledgebase/src/main/java/de/i3mainz/knowledgebase/Config.js)
+  * [Config.java](/netbeans/knowledgebase/src/main/java/de/i3mainz/knowledgebase/Config.java)
     * TRIPLESTORE_SERVER
     * INSTANCE_HOST
     * TRIPLESTORE_REPOSITORY
