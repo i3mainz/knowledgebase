@@ -32,6 +32,10 @@
         <servlet-name>Calc</servlet-name>
         <servlet-class>de.i3mainz.knowledgebase.Calc</servlet-class>
     </servlet>
+	<servlet>
+        <servlet-name>InputTSV</servlet-name>
+        <servlet-class>de.i3mainz.knowledgebase.InputTSV</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Input</servlet-name>
         <url-pattern>/Input</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>Calc</servlet-name>
         <url-pattern>/Calc</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>InputTSV</servlet-name>
+        <url-pattern>/InputTSV</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
